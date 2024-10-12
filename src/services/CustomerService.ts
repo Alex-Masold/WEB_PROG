@@ -28,8 +28,8 @@ function addOne(customer: ICustomer): Promise<void> {
 /**
  * Update one user.
  */
-async function updateOne(user: ICustomer): Promise<void> {
-  const persists = await CustomerRepo.persists(user.id);
+async function updateOne(customer: ICustomer): Promise<void> {
+  const persists = await CustomerRepo.persists(customer.id);
   if (!persists) {
     throw new RouteError(
       HttpStatusCodes.NOT_FOUND,
@@ -37,7 +37,7 @@ async function updateOne(user: ICustomer): Promise<void> {
     );
   }
   // Return user
-  return CustomerRepo.update(user);
+  return CustomerRepo.update(customer);
 }
 
 /**

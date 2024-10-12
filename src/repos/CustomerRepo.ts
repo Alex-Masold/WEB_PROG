@@ -7,10 +7,10 @@ import orm from './MockOrm';
 /**
  * Get one customer.
  */
-async function getOne(email: string): Promise<ICustomer | null> {
+async function getOne(id: number): Promise<ICustomer | null> {
   const db = await orm.openDb();
   for (const customer of db.customers) {
-    if (customer.email === email) {
+    if (customer.id === id) {
       return customer;
     }
   }

@@ -22,15 +22,15 @@ function displayUsers() {
   Http
     .get(`${BASE_URL}`)
     .then(resp => resp.json())
-    .then(resp => {
+    .then(resp => { 
       var allUsersTemplate = document.getElementById('all-users-template'),
         allUsersTemplateHtml = allUsersTemplate.innerHTML,
         template = Handlebars.compile(allUsersTemplateHtml);
       var allUsersAnchor = document.getElementById('all-users-anchor');
       allUsersAnchor.innerHTML = template({
-        users: resp.users.map(user => ({
-          ...user,
-          createdFormatted: formatDate(user.created),
+        customers: resp.customers.map(customer => ({
+          ...customer,
+          createdFormatted: formatDate(customer.created),
         })),
       });
     });
@@ -60,7 +60,7 @@ function addUser() {
   var nameInput = document.getElementById('name-input');
   var emailInput = document.getElementById('email-input');
   var data = {
-    user: {
+    customer: {
       id: -1,
       name: nameInput.value,
       email: emailInput.value,
@@ -108,7 +108,7 @@ function submitEdit(ele) {
   var created = ele.getAttribute('data-user-created');
     console.log(ele, created)
   var data = {
-    user: {
+    customer: {
       id: Number(id),
       name: nameInput.value,
       email: emailInput.value,

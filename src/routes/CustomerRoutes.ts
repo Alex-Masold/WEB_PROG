@@ -11,16 +11,16 @@ import check from './common/check';
  * Get all users.
  */
 async function getAll(_: IReq, res: IRes) {
-  const users = await CustomerService.getAll();
-  res.status(HttpStatusCodes.OK).json({ users });
+  const customers = await CustomerService.getAll();
+  res.status(HttpStatusCodes.OK).json({ customers });
 }
 
 /**
  * Add one user.
  */
 async function add(req: IReq, res: IRes) {
-  const user = check.isValid(req.body, 'user', Customer.is);
-  await CustomerService.addOne(user);
+  const customer = check.isValid(req.body, 'customer', Customer.is);
+  await CustomerService.addOne(customer);
   res.status(HttpStatusCodes.CREATED).end();
 }
 
@@ -28,8 +28,8 @@ async function add(req: IReq, res: IRes) {
  * Update one user.
  */
 async function update(req: IReq, res: IRes) {
-  const user = check.isValid(req.body, 'user', Customer.is);
-  await CustomerService.updateOne(user);
+  const customer = check.isValid(req.body, 'customer', Customer.is);
+  await CustomerService.updateOne(customer);
   res.status(HttpStatusCodes.OK).end();
 }
 
@@ -41,7 +41,6 @@ async function delete_(req: IReq, res: IRes) {
   await CustomerService.delete(id);
   res.status(HttpStatusCodes.OK).end();
 }
-
 
 // **** Export default **** //
 

@@ -1,8 +1,8 @@
 import { IReq, IRes } from './common/types';
 import UserService from '@src/services/UserService';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
-import check from './common/check';
 import User from '@src/models/User';
+import check from './common/check';
 
 async function getAll(req: IReq, res: IRes) {
   const users = await UserService.getAll();
