@@ -2,6 +2,7 @@
 
 import jsonfile from 'jsonfile';
 
+import { ICustomer } from '@src/models/Customer';
 import { IUser } from '@src/models/User';
 
 
@@ -13,6 +14,7 @@ const DB_FILE_NAME = 'database.json';
 // **** Types **** //
 
 interface IDb {
+  customers: ICustomer[];
   users: IUser[];
 }
 

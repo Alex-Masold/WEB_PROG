@@ -1,12 +1,12 @@
 import { Response } from 'supertest';
-import { IUser } from '@src/models/User';
+import { ICustomer } from '@src/models/Customer';
 
 
 // Misc
 export type TReqBody = Record<string, unknown>;
 export type TRes = Omit<Response, 'body'> & { body: {
   error?: string;
-  user?: IUser
-  users?: IUser[]
+  user?: ICustomer
+  users?: ICustomer[]
 }};
 export type TApiCb = (res: TRes) => void;

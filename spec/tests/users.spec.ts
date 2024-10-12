@@ -4,10 +4,10 @@ import insertUrlParams from 'inserturlparams';
 
 import app from '@src/server';
 
-import UserRepo from '@src/repos/UserRepo';
-import User, { IUser } from '@src/models/User';
+import UserRepo from '@src/repos/CustomerRepo';
+import User, { ICustomer } from '@src/models/Customer';
 import HttpStatusCodes from '@src/common/HttpStatusCodes';
-import { USER_NOT_FOUND_ERR } from '@src/services/UserService';
+import { CUSTOMER_NOT_FOUND_ERR } from '@src/services/CustomerService';
 
 import Paths from 'spec/support/Paths';
 import apiCb from 'spec/support/apiCb';
@@ -67,7 +67,7 @@ describe('UserRouter', () => {
       DUMMY_USER = getDummyUsers()[0];
 
     // Setup API
-    const callApi = (user: IUser | null, cb: TApiCb) => 
+    const callApi = (user: ICustomer | null, cb: TApiCb) => 
       agent
         .post(Paths.Users.Add)
         .send({ user })
@@ -105,7 +105,7 @@ describe('UserRouter', () => {
       DUMMY_USER = getDummyUsers()[0];
 
     // Setup API
-    const callApi = (user: IUser | null, cb: TApiCb) => 
+    const callApi = (user: ICustomer | null, cb: TApiCb) => 
       agent
         .put(Paths.Users.Update)
         .send({ user })
@@ -138,12 +138,12 @@ describe('UserRouter', () => {
 
     // User not found
     it('should return a JSON object with the error message of ' + 
-    `"${USER_NOT_FOUND_ERR}" and a status code of ` + 
+    `"${CUSTOMER_NOT_FOUND_ERR}" and a status code of ` + 
     `"${HttpStatusCodes.NOT_FOUND}" if the id was not found.`, (done) => {
       // Call api
       callApi(DUMMY_USER, res => {
         expect(res.status).toBe(HttpStatusCodes.NOT_FOUND);
-        expect(res.body.error).toBe(USER_NOT_FOUND_ERR);
+        expect(res.body.error).toBe(CUSTOMER_NOT_FOUND_ERR);
         done();
       });
     });
@@ -173,12 +173,12 @@ describe('UserRouter', () => {
 
     // User not found
     it('should return a JSON object with the error message of ' + 
-    `"${USER_NOT_FOUND_ERR}" and a status code of ` + 
+    `"${CUSTOMER_NOT_FOUND_ERR}" and a status code of ` + 
     `"${HttpStatusCodes.NOT_FOUND}" if the id was not found.`, done => {
       // Setup spies
       callApi(-1, res => {
         expect(res.status).toBe(HttpStatusCodes.NOT_FOUND);
-        expect(res.body.error).toBe(USER_NOT_FOUND_ERR);
+        expect(res.body.error).toBe(CUSTOMER_NOT_FOUND_ERR);
         done();
       });
     });

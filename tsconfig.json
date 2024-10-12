@@ -80,7 +80,7 @@
     "spec/**/*.ts",
     "scripts",
     "preload.js"
-  ],
+, "src/models/User.ts"  ],
   "exclude": [
     "src/public/*"
   ]

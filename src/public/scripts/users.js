@@ -6,8 +6,9 @@ const DateFormatter = new Intl.DateTimeFormat('en-US', {
   day: '2-digit',
 });
 
-const formatDate = (date) => DateFormatter.format(new Date(date));
+const BASE_URL = "/api/customers"
 
+const formatDate = (date) => DateFormatter.format(new Date(date));
 
 // **** Run **** //
 
@@ -19,7 +20,7 @@ displayUsers();
  */
 function displayUsers() {
   Http
-    .get('/api/users/all')
+    .get(`${BASE_URL}`)
     .then(resp => resp.json())
     .then(resp => {
       var allUsersTemplate = document.getElementById('all-users-template'),
@@ -68,7 +69,7 @@ function addUser() {
   };
   // Call api
   Http
-    .post('/api/users/add', data)
+    .post(`${BASE_URL}`, data)
     .then(() => {
       nameInput.value = '';
       emailInput.value = '';
@@ -115,7 +116,7 @@ function submitEdit(ele) {
     },
   };
 	Http
-    .put('/api/users/update', data)
+    .patch(`${BASE_URL}/${id}`, data)
     .then(() => displayUsers());
 }
 
@@ -125,6 +126,6 @@ function submitEdit(ele) {
 function deleteUser(ele) {
   var id = ele.getAttribute('data-user-id');
 	Http
-    .delete('/api/users/delete/' + id)
+    .delete(`${BASE_URL}/${id}`)
     .then(() => displayUsers());
 }

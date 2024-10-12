@@ -20,7 +20,7 @@ var Http = (() => {
   return {
     get: (path) => fetch(path, getOptions('GET')),
     post: (path, data) => fetch(path, getOptions('POST', data)),
-    put: (path, data) => fetch(path, getOptions('PUT', data)),
+    patch: (path, data) => fetch(path, getOptions('PATCH', data)),
     delete: (path) => fetch(path, getOptions('DELETE')),
   };
 })();

@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
-import Paths from '../common/Paths';
-import UserRoutes from './UserRoutes';
+import Paths from '../common/paths/Paths';
+import UserRoutes from './CustomerRoutes';
 
 
 // **** Variables **** //
@@ -14,11 +14,10 @@ const apiRouter = Router();
 // Init router
 const userRouter = Router();
 
-// Get all users
-userRouter.get(Paths.Users.Get, UserRoutes.getAll);
-userRouter.post(Paths.Users.Add, UserRoutes.add);
-userRouter.put(Paths.Users.Update, UserRoutes.update);
-userRouter.delete(Paths.Users.Delete, UserRoutes.delete);
+userRouter.get(Paths.Customers.Get, UserRoutes.getAll);
+userRouter.post(Paths.Customers.Add, UserRoutes.add);
+userRouter.put(Paths.Customers.Update, UserRoutes.update);
+userRouter.delete(Paths.Customers.Delete, UserRoutes.delete);
 
 // Add UserRouter
 apiRouter.use(Paths.Users.Base, userRouter);

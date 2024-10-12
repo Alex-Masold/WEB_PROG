@@ -1,4 +1,4 @@
-import { IUser } from '@src/models/User';
+import { ICustomer } from '@src/models/Customer';
 import 'supertest';
 
 
@@ -8,7 +8,7 @@ declare module 'supertest' {
     headers: Record<string, string[]>;
     body: {
       error: string;
-      users: IUser[];
+      users: ICustomer[];
     };
   }
 }
