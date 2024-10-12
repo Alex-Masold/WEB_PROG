@@ -4,7 +4,7 @@ import HttpStatusCodes from '@src/common/HttpStatusCodes';
 import User from '@src/models/User';
 import check from './common/check';
 
-async function getAll(req: IReq, res: IRes) {
+async function getAll(_: IReq, res: IRes) {
   const users = await UserService.getAll();
   res.status(HttpStatusCodes.OK).json({ users });
 }

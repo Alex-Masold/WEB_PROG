@@ -52,7 +52,7 @@ async function delete_(id: number): Promise<void> {
   const db = await orm.openDb();
   for (let i = 0; i < db.users.length; i++) {
     if (db.users[i].id === id) {
-      db.users.splice(i, i);
+      db.users.splice(i, 1);
       return orm.saveDb(db);
     }
   }

@@ -18,7 +18,6 @@ interface IDb {
   users: IUser[];
 }
 
-
 // **** Functions **** //
 
 /**

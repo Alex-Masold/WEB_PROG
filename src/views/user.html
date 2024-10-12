@@ -4,8 +4,8 @@
   <!-- Head -->
   <head>
     <meta charset="UTF-8">
-    <title>customers</title>
-    <link rel="stylesheet" type="text/css" href="/stylesheets/customers.css" />
+    <title>users</title>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/users.css" />
 
     <!-- Handlebars -->
     <script src="http://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"></script>
@@ -26,11 +26,11 @@
 
   <!-- Body -->
   <body>
-
-    <!-- Add customers -->
-    <div class="customers-column add-customer-col">
+    
+    <!-- Add users -->
+    <div class="users-column add-user-col">
       <div class="column-header">
-        Add customer:
+        Add user:
       </div>
       <div>
         <input
@@ -41,16 +41,8 @@
         />
       </div>
       <div>
-        <input
-          id="email-input"
-          type="email"
-          class="form-control"
-          placeholder="Email"
-        />
-      </div>
-      <div>
         <button
-          id="add-customer-btn"
+          id="add-user-btn"
           class="btn btn-success"
         >
           Add
@@ -58,33 +50,31 @@
       </div>
     </div>
 
-    <!-- Display customers -->
-    <div class="customers-column">
+    <!-- Display users -->
+    <div class="users-column">
       <div class="column-header">
-        customers:
+        users:
       </div>
 
-      <div id="all-customers-anchor"></div>
+      <div id="all-users-anchor"></div>
       <script
-        id="all-customers-template"
+        id="all-users-template"
         type="text/x-handlebars-template"
       >
-        {{#each customers}}
-          <div class="customer-display-ele">
+        {{#each users}}
+          <div class="user-display-ele">
             <div class="normal-view">
               <div><b>Name:</b> {{name}}</div>
-              <div><b>Email:</b> {{email}}</div>
-              <div><b>Created:</b> {{createdFormatted}}</div>
               <button
                 type="button"
-                class="btn btn-primary edit-customer-btn"
-                data-customer-id="{{id}}"
+                class="btn btn-primary edit-user-btn"
+                data-user-id="{{id}}"
               >
                 Edit
               </button>
               <button
-                class="btn btn-danger delete-customer-btn"
-                data-customer-id="{{id}}"
+                class="btn btn-danger delete-user-btn"
+                data-user-id="{{id}}"
               >
                 Delete
               </button>
@@ -99,24 +89,15 @@
                   value="{{name}}"
                 />
               </div>
-              <div class="email-edit">
-                Email:&nbsp;
-                <input
-                  type="email"
-                  class="form-control email-edit-input"
-                  value="{{email}}"
-                />
-              </div>
               <button
                 class="btn btn-primary submit-edit-btn"
-                data-customer-id="{{id}}"
-                data-customer-created="{{created}}"
+                data-user-id="{{id}}"
               >
                 Submit
               </button>
               <button
                 class="btn btn-secondary cancel-edit-btn"
-                data-customer-id="{{id}}"
+                data-user-id="{{id}}"
               >
                 Cancel
               </button>
@@ -128,5 +109,5 @@
   </body>
 
   <script src="scripts/http.js"></script>
-  <script src="scripts/customers.js"></script>
+  <script src="scripts/users.js"></script>
 </html>

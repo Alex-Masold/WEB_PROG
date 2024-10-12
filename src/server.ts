@@ -20,7 +20,6 @@ import { NodeEnvs } from '@src/common/misc';
 
 const app = express();
 
-
 // **** Setup **** //
 
 // Basic middleware
@@ -67,7 +66,7 @@ app.use(express.static(staticDir));
 
 // Nav to users pg by default
 app.get('/', (_: Request, res: Response) => {
-  return res.redirect('/users');
+  return res.redirect('/customers');
 });
 
 // Redirect to login if not logged in.
@@ -75,7 +74,9 @@ app.get('/customers', (_: Request, res: Response) => {
   return res.sendFile('customer.html', { root: viewsDir });
 });
 
-
+app.get('/users', (_:Request, res:Response) => {
+  return res.sendFile('user.html', {root: viewsDir});
+});
 // **** Export default **** //
 
 export default app;

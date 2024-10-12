@@ -1,0 +1,48 @@
+body {
+  padding: 100px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+body .customers-column {
+  display: inline-block;
+  margin-right: 2em;
+  vertical-align: top;
+}
+
+body .customers-column .column-header {
+  padding-bottom: 5px;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+
+/** Add customer Column **/
+
+body .add-customer-col input {
+  margin-bottom: 10px;
+}
+
+body .add-customer-col #add-customer-btn {
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+
+/** customers Display Column **/
+
+.email-edit {
+  padding-bottom: 8px;
+}
+
+body .customers-column .customer-display-ele {
+  padding-bottom: 10px;
+}
+
+body .customers-column .customer-display-ele button {
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+
+body .customers-column .customer-display-ele .edit-view {
+  display: none;
+}
